@@ -9,7 +9,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
-import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -19,9 +18,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+/***
+ *
+ * Created by Amit_Gupta on 2/14/16.
+ *
+ */
+
 public class SDCardDetails extends AppCompatActivity implements TaskFragment.TaskCallbacks {
 
-    private ShareActionProvider mShareActionProvider;
     private String TAG = SDCardDetails.class.getSimpleName();
     private Intent shareIntent=new Intent(Intent.ACTION_SEND);
     private TextView avgFileSize;
@@ -40,7 +44,6 @@ public class SDCardDetails extends AppCompatActivity implements TaskFragment.Tas
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.content_sdcard_details);
         setContentView(R.layout.activity_sdcard_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,7 +71,6 @@ public class SDCardDetails extends AppCompatActivity implements TaskFragment.Tas
             mTaskFragment = new TaskFragment();
             fm.beginTransaction().add(mTaskFragment, TAG_TASK_FRAGMENT).commit();
         }
-
 
         avgFileSize = (TextView)findViewById(R.id.avgFileSize);
         biggestFiles = (TextView)findViewById(R.id.biggestFiles);
@@ -110,7 +112,6 @@ public class SDCardDetails extends AppCompatActivity implements TaskFragment.Tas
         // Inflate menu resource file.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         this.menu = menu;
-        //enableOptionMenu(false);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -120,13 +121,6 @@ public class SDCardDetails extends AppCompatActivity implements TaskFragment.Tas
         return super.onPrepareOptionsMenu(menu);
     }
 
-    // Call to update the share intent
-    private void setShareIntent(Intent shareIntent) {
-        if (mShareActionProvider != null) {
-            mShareActionProvider.setShareIntent(shareIntent);
-        }
-    }
-
     private void enableOptionMenu(boolean flag){
         MenuItem item= menu.findItem(R.id.menu_item_share);
         item.setEnabled(flag);
@@ -134,20 +128,12 @@ public class SDCardDetails extends AppCompatActivity implements TaskFragment.Tas
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
         }
         if(id == R.id.menu_item_share){
             startActivity(Intent.createChooser(shareIntent, "Share via"));
-        }
-
-        if (mShareActionProvider != null) {
-            //mShareActionProvider.setShareIntent(shareIntent);
         }
 
         return super.onOptionsItemSelected(item);

@@ -40,6 +40,7 @@
 
         <TextView
             android:id="@+id/avgFileSize"
+            android:freezesText="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -62,6 +63,7 @@
 
         <TextView
             android:id="@+id/biggestFiles"
+            android:freezesText="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -83,6 +85,7 @@
 
         <TextView
             android:id="@+id/mostFrequentFiles"
+            android:freezesText="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
