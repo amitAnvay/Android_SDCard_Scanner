@@ -157,7 +157,7 @@ public class TaskFragment extends Fragment {
             for(int i = 0; i< myList.size() && i < 10; i++){
                 tenBiggestFiles.append(myList.get(i).name+"\n");
             }
-            returnStringData[0] = "" + average_size+ " KB";
+            returnStringData[0] = "" + average_size+ getString(R.string.kb);
             returnStringData[1] = tenBiggestFiles.toString();
             returnStringData[2] = mostFrequentFileExtensions;
 
@@ -224,7 +224,7 @@ public class TaskFragment extends Fragment {
                                 }
                                 sDFile.extension = sDFile.name.substring(dotposition + 1, sDFile.name.length());
                             }else {
-                                System.out.println(" Index = -1");
+                                //System.out.println(" Index = -1");
                             }
                             sDFile.size= file.length();
                             performOrderedInsertion(sDFile);

@@ -46,7 +46,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:layout_below="@+id/textView1"
-            android:text="--" />
+            android:text="@string/empty_string" />
 
 
 
@@ -69,7 +69,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:layout_below="@+id/textView3"
-            android:text="--" />
+            android:text="@string/empty_string" />
 
 
         <TextView
@@ -90,31 +90,34 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"
             android:layout_below="@+id/textView5"
-            android:text="--" />
+            android:text="@string/empty_string" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/startScan"
-            android:text="Start Scan"
+            android:text="@string/start_scan"
             android:layout_weight="0.7"
             android:onClick="startScan"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="52dp"
-            android:layout_marginStart="52dp" />
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_below="@+id/mostFrequentFiles"
+            android:layout_alignLeft="@+id/mostFrequentFiles"
+            android:layout_alignStart="@+id/mostFrequentFiles" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stop Scan"
+            android:text="@string/stop_scan"
             android:id="@+id/stopScan"
             android:onClick="stopScan"
+            android:layout_marginRight="39dp"
+            android:layout_marginEnd="39dp"
             android:layout_below="@+id/mostFrequentFiles"
-            android:layout_toRightOf="@+id/startScan"
-            android:layout_toEndOf="@+id/startScan" />
+            android:layout_alignRight="@+id/mostFrequentFiles"
+            android:layout_alignEnd="@+id/mostFrequentFiles" />
 
     </RelativeLayout>
 </ScrollView>
